@@ -1,48 +1,57 @@
 # API ASISTENCIA UNITEC - by. @JSarmiento
-## Problema Propuesto -
+---
+## Problema Propuesto 
 Unitec lo contrato para hacer el sistema de asistencia, tome en cuenta los siguientes **requisitos:**   
-    *Los estudiantes puden marcar sus asistencia por dia y clase.*
-    *Los Maestros pueden marcar asistencia de cada clase.*
-    *Los Maestros pueden ver los alumnos que pertenecen a una clase en particular.*
+    * Los estudiantes puden marcar sus asistencia por dia y clase. 
+    * Los Maestros pueden marcar asistencia de cada clase. 
+    * Los Maestros pueden ver los alumnos que pertenecen a una clase en particular. 
 
 **Defina:**
-    *Esquema relacional*
-    *Disene el API*
-    *Use Node Js*
---------------------------------------------------------------------------------------------------
+    * Esquema relacional
+    * Disene el API
+    * Use Node Js
+---
 ## || Esquema Relacional ||
-**<Tablas>**
-> <<<Estudiante>>>
-> *IdEstudiante
-> *nameEstudiante
+**Tablas**
+**Estudiante**
+> IdEstudiante
+> nameEstudiante
 
-**<<Maestros>>**
-> *IdDocente
-> *nombreDocente
-> *Profesion
-
-
-**<<Asistencia>>**
-> *idAsistencia
-> *IdClase
-> *fecha
-> *Marca
+**Maestros**
+```
+ IdDocente
+ nombreDocente
+ Profesion
+```
 
 
-**<<Clases>>**
-> *idClase
-> *idDocente
-> *nombreClase
+**Asistencia**
+```
+ idAsistencia
+ IdClase
+ fecha
+ Marca
+```
 
 
-**<<Matrcula>>**
-> *idClase
-> *idEstudiate
+**Clases**
+```
+ idClase
+ idDocente
+ nombreClase
+```
 
+
+**Matrcula**
+```
+idClase
+idEstudiate
+```
+---
 URL-Entidad-Relacion: 
 [Esquema Relacional](https://www.lucidchart.com/invitations/accept/b2852937-e08a-4e46-9467-064591eda926)
 
-//////////////////////////////////////////////////////////////
+---
 
 ## || Convensión de Nombres ||
 
