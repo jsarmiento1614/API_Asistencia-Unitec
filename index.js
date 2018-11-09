@@ -18,12 +18,9 @@ app.use(bodyparser());
 const sqlconfig={
     server: process.env.DB_SERVER,
     user: process.env.DB_USER,
-    pass: process.env.DB_PASS,
+    password: process.env.DB_PASS,
     database: process.env.DB_DATABASE,
     port: parseInt(process.env.DB_PORT),
-    options: {
-        encrypt: false
-    }
 }
 
 
@@ -44,11 +41,13 @@ app.listen(parseInt(process.env.APP_PORT), () => {
 // Creo funcion get para que el usuario obtnga la informacion que solicita.
 app.get('/app/view/student/class', (req, res, next) =>{
     // Obtendre del querystring el parametro de busqueda del usuario.
-    var clase = req.query.clase || 'informatica';
+    //var clase = req.query.clase || 'informatica';
 
     // Realizare la consulta a la base de datos.
+
     sql.connect(sqlconfig).then(() => {
-        return sql.query(`select * from dbo.estudiantes INNER JOIN matricula ON  e.idEstudiante =  m.idEstudiante INNER JOIN clases ON c.IdClase m.IdClase where nombreClase = ${clase}`);
+        //return sql.query(`select * from dbo.estudiantes INNER JOIN matricula ON  e.idEstudiante =  m.idEstudiante INNER JOIN clases ON c.IdClase m.IdClase where nombreClase = ${clase}`);
+        return sql.query(`select * from Assistance.dbo.Teacher`);
     }).then(result => {
         var data = {
             seccess: true,
@@ -61,9 +60,4 @@ app.get('/app/view/student/class', (req, res, next) =>{
     }).catch(err => {
         return next(err);
     });
-
-
-
-    console.log('Esta es una prueba')
-    res.send("Funciono esto");
 });
